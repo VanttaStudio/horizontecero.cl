@@ -1,0 +1,23 @@
+---
+const currentYear = new Date().getFullYear();
+const socialLinks = [
+    { href: "#", label: "Facebook" },
+    { href: "#", label: "Instagram" },
+    { href: "#", label: "LinkedIn" },
+]
+---
+<footer class="bg-gray-800 text-gray-300">
+    <div class="container mx-auto px-6 py-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="text-center md:text-left mb-4 md:mb-0">
+                <p class="text-sm">&copy; {currentYear} Horizonte Cero. Todos los derechos reservados.</p>
+                <p class="text-xs mt-1">Reconstruido con Astro & Tailwind CSS</p>
+            </div>
+            <div class="flex space-x-4">
+                {socialLinks.map(link => (
+                    <a href={link.href} class="hover:text-white transition-colors">{link.label}</a>
+                ))}
+            </div>
+        </div>
+    </div>
+</footer>

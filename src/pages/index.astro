@@ -1,0 +1,24 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Hero from '../components/Hero.astro';
+import CoursePromo from '../components/CoursePromo.astro';
+
+// Hemos eliminado el import erróneo de siteConfig
+---
+
+<MainLayout title="Horizonte Cero | Inicio">
+  
+  <Hero 
+    title="Cultivamos <span class='text-secondary'>comunidad</span>, <span class='text-secondary'>conciencia</span> y <span class='text-secondary'>conexión</span> con la tierra."
+    subtitle="Impulsamos la sostenibilidad en Punta Arenas a través del vermicompostaje, la agroecología urbana y la educación ambiental. Transformamos residuos en recursos y conocimiento en acción."
+    buttonText="Chatea con KENOS.IA"
+    buttonHref="#"
+  />
+
+  <div class="relative z-10 bg-white dark:bg-gray-900">
+    <div class="space-y-20 py-20">
+      <CoursePromo />
+    </div>
+  </div>
+
+</MainLayout>

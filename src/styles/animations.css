@@ -1,0 +1,26 @@
+/* Este archivo controla todas las transiciones, transformaciones y animaciones. */
+
+/* Transiciones globales */
+body {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Transiciones del Header */
+#site-header .container {
+  transition: height 0.3s ease-in-out;
+}
+#header-logo {
+  transition: background-image 0.3s ease-in-out;
+}
+
+/* ▼ ANIMACIÓN DEL BOTÓN MODIFICADA ▼ */
+.btn-secondary {
+  /* Transicionamos suavemente la transformación y la sombra */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.btn-secondary:hover {
+  /* Al pasar el mouse, el botón se mueve 3px hacia arriba */
+  transform: translateY(-3px);
+  /* La sombra se hace un poco más grande y difusa, dando el efecto de "elevarse" */
+  box-shadow: 0 10px 20px rgba(132, 204, 22, 0.25);
+}

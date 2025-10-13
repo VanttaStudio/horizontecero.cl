@@ -1,0 +1,78 @@
+/* Este archivo controla toda la paleta de colores y las imágenes de fondo. */
+
+:root {
+  /* Variables de Color Personalizadas */
+  --color-secondary: #3dff16;      /* Verde principal */
+  --color-secondary-dark: #33da33; /* Verde para hover */
+  --header-bg-dark: #291d19;       /* Marrón tierra para header */
+
+  /* Variables de Tema */
+  --bg-color: white;
+  --text-color: #23371f;
+  --bg-image-light: url('/images/dia.png');
+  --bg-image-dark: url('/images/noche.png');
+  --logo-image: url('/images/logodia.png'); 
+}
+
+html.dark {
+  --bg-color: #122711;
+  --text-color: #d1d5db;
+  --logo-image: url('/images/logonoche.png');
+}
+
+/* Aplicación de colores base */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+#page-background {
+  background-image: var(--bg-image-light);
+}
+
+html.dark #page-background {
+  background-image: var(--bg-image-dark);
+}
+
+/* Colores del Header */
+#site-header {
+  background-color: transparent;
+}
+#site-header nav a {
+  color: white;
+}
+#site-header[data-scrolled="true"] {
+  background-color: #f1f5f9;
+}
+#site-header[data-scrolled="true"] nav a {
+  color: #1f2937;
+}
+html.dark #site-header[data-scrolled="true"] {
+  background-color: var(--header-bg-dark);
+}
+html.dark #site-header[data-scrolled="true"] nav a {
+  color: #d1d5db;
+}
+html.dark #site-header nav a {
+  color: #d1d5db;
+}
+
+/* Colores del Logo */
+#site-header #header-logo {
+  background-image: url('/images/logonoche.png');
+}
+#site-header[data-scrolled="true"] #header-logo {
+  background-image: var(--logo-image);
+}
+
+/* Colores para el Hero y componentes */
+.text-secondary {
+  color: var(--color-secondary);
+}
+.btn-secondary {
+  background-color: var(--color-secondary);
+  color: white;
+}
+.btn-secondary:hover {
+  background-color: var(--color-secondary-dark);
+}

@@ -1,0 +1,37 @@
+---
+import { Image } from 'astro:assets';
+import Button from './Button.astro';
+import promoImage from '../assets/images/vermi.jpg'; 
+---
+<section id="vermicompostaje" class="animate-on-scroll">
+  <div class="container mx-auto px-6">
+    <div class="bg-slate-100 dark:bg-gray-800/50 rounded-2xl shadow-lg overflow-hidden">
+      
+      <div class="md:flex">
+        
+        <div class="md:w-1/2">
+          <Image 
+            src={promoImage} 
+            alt="Vermicompostaje en acción"
+            class="w-full h-64 md:h-full object-cover"
+          />
+        </div>
+        
+        <div class="md:w-1/2 p-8 md:p-12 lg:p-16 flex flex-col justify-center">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
+            Vermicompostaje
+          </h2>
+          <p class="text-gray-600 dark:text-gray-300 text-lg mb-8 leading-relaxed">
+            Transformamos residuos orgánicos en abono vivo con lombrices californianas. Una solución práctica y ecológica para reducir tu basura.
+          </p>
+          <div class="mt-auto">
+              <Button href="/curso-vermicompostaje">
+                  ACCEDER AL CURSO
+              </Button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

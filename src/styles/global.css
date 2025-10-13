@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+/* Estilos estructurales base (sin colores ni animaciones) */
+
+#page-background {
+  content: '';
+  position: absolute;
+  top: 100vh;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+#site-header {
+  box-shadow: none;
+}
+#site-header .container {
+  height: 6rem;
+}
+#site-header[data-scrolled="true"] {
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+#site-header[data-scrolled="true"] .container {
+  height: 4.5rem;
+}
+
+
+.btn-secondary {
+  font-weight: bold;
+  padding: 1rem 2.5rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  /* ▼ La sombra inicial ahora es más sutil ▼ */
+  box-shadow: 0 4px 6px rgba(132, 204, 22, 0.15);
+}
+.btn-secondary:hover {
+  box-shadow: 0 20px 25px -5px rgba(132, 204, 22, 0.3), 0 8px 10px -6px rgba(132, 204, 22, 0.3);
+}
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
