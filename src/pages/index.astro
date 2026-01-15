@@ -2,10 +2,7 @@
 import MainLayout from '../layouts/MainLayout.astro';
 import Hero from '../components/Hero.astro';
 import CoursePromo from '../components/CoursePromo.astro';
-
-// Hemos eliminado el import erróneo de siteConfig
 ---
-
 <MainLayout title="Horizonte Cero | Inicio">
   
   <Hero 
@@ -15,7 +12,7 @@ import CoursePromo from '../components/CoursePromo.astro';
     buttonHref="#"
   />
 
-  <div class="relative z-10 bg-white dark:bg-gray-900">
+  <div class="relative z-10">
     <div class="space-y-20 py-20">
       <CoursePromo />
     </div>

@@ -1,0 +1,42 @@
+<div class="stats-glass-bar">
+    <div class="stat-block">
+        <span class="number">18+</span>
+        <span class="label">Años Experiencia</span>
+    </div>
+    <div class="divider"></div>
+    <div class="stat-block">
+        <span class="number">10+</span>
+        <span class="label">Ton. Transformadas</span>
+    </div>
+    <div class="divider"></div>
+    <div class="stat-block">
+        <span class="number">200+</span>
+        <span class="label">Capacitados</span>
+    </div>
+</div>
+
+<style>
+    .stats-glass-bar {
+        display: flex; flex-direction: column;
+        background: rgba(30, 41, 59, 0.85); /* Oscuro sólido semi-transparente */
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 40px; margin-bottom: 80px;
+        color: white; text-align: center;
+        align-items: center; justify-content: space-around;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+    @media (min-width: 768px) {
+        .stats-glass-bar { flex-direction: row; }
+    }
+
+    .stat-block { margin: 15px 0; }
+    
+    .number { display: block; font-size: 3rem; font-weight: 900; color: var(--color-secondary, #4ade80); line-height: 1; }
+    .label { font-size: 0.9rem; font-weight: bold; text-transform: uppercase; color: #cbd5e1; letter-spacing: 1px; }
+
+    .divider { width: 50%; height: 1px; background: rgba(255,255,255,0.1); }
+    @media (min-width: 768px) {
+        .divider { width: 1px; height: 60px; }
+    }
+</style>

@@ -1,0 +1,84 @@
+<section class="carousel-section mb-20">
+    <h2 class="section-title">Tejiendo Redes Regenerativas</h2>
+    
+    <div class="slider">
+        <div class="slide-track">
+            <div class="partner">EcoSistemas Sur</div>
+            <div class="partner">Fundación Regenera</div>
+            <div class="partner">TerraViva Corp.</div>
+            <div class="partner">Semillas del Fin del Mundo</div>
+            <div class="partner">Aqua Pura</div>
+            <div class="partner">Patagonia Orgánica</div>
+            <div class="partner">Energía Nativa</div>
+            
+            <div class="partner">EcoSistemas Sur</div>
+            <div class="partner">Fundación Regenera</div>
+            <div class="partner">TerraViva Corp.</div>
+            <div class="partner">Semillas del Fin del Mundo</div>
+            <div class="partner">Aqua Pura</div>
+            <div class="partner">Patagonia Orgánica</div>
+            <div class="partner">Energía Nativa</div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .carousel-section { text-align: center; overflow: hidden; }
+    
+    .section-title { 
+        font-size: 1.5rem; font-weight: 800; color: #64748b; margin-bottom: 2rem; 
+        text-transform: uppercase; letter-spacing: 1px;
+    }
+    :global(.dark) .section-title { color: #94a3b8; }
+
+    .slider {
+        background: white;
+        box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
+        height: 100px;
+        margin: auto;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        border-radius: 20px;
+        display: flex; align-items: center;
+    }
+    :global(.dark) .slider { background: rgba(30, 41, 59, 0.5); }
+    
+    /* Efecto Sombra a los lados para suavizar entrada/salida */
+    .slider::before, .slider::after {
+        background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+        content: ""; height: 100px; position: absolute; width: 100px; z-index: 2;
+    }
+    .slider::after {
+        right: 0; top: 0; transform: rotateZ(180deg);
+    }
+    .slider::before { left: 0; top: 0; }
+    
+    :global(.dark) .slider::before, :global(.dark) .slider::after {
+        background: linear-gradient(to right, rgba(15, 23, 42, 1) 0%, rgba(15, 23, 42, 0) 100%);
+    }
+
+    /* PISTA QUE SE MUEVE */
+    .slide-track {
+        animation: scroll 30s linear infinite;
+        display: flex;
+        width: calc(250px * 14); /* 250px por slide * 14 elementos totales */
+    }
+
+    .partner {
+        height: 100px;
+        width: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: #475569;
+        font-size: 1.1rem;
+    }
+    :global(.dark) .partner { color: #cbd5e1; }
+
+    @keyframes scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-250px * 7)); } /* Mueve la mitad */
+    }
+</style>

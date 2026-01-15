@@ -1,9 +1,8 @@
-/* Este archivo controla toda la paleta de colores y las imágenes de fondo. */
-
+/* src/styles/colors.css */
 :root {
   /* Variables de Color Personalizadas */
-  --color-secondary: #3dff16;      /* Verde principal */
-  --color-secondary-dark: #33da33; /* Verde para hover */
+  --color-secondary: #3dff16;      /* Verde principal neón */
+  --color-secondary-dark: #359c35; /* Verde para hover */
   --header-bg-dark: #291d19;       /* Marrón tierra para header */
 
   /* Variables de Tema */
@@ -15,7 +14,7 @@
 }
 
 html.dark {
-  --bg-color: #122711;
+  --bg-color: #242020;
   --text-color: #d1d5db;
   --logo-image: url('/images/logonoche.png');
 }

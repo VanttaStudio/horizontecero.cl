@@ -1,6 +1,7 @@
 ---
-import Button from './Button.astro'; // <-- RUTA CORREGIDA
+import Button from "./Button.astro";
 
+// Las props que definimos para el título, subtítulo y botón
 interface Props {
   title: string;
   subtitle?: string;
@@ -11,17 +12,33 @@ interface Props {
 const { 
   title, 
   subtitle, 
-  buttonText = "Botón de ejemplo",
-  buttonHref = "#"
+  buttonText,
+  buttonHref
 } = Astro.props;
 ---
+
 <section class="relative h-screen w-full flex items-center justify-center text-center text-white overflow-hidden">
+  
   <div class="absolute top-0 left-0 w-full h-full z-0">
-    <video class="w-full h-full object-cover" src="/hero.mp4" autoplay loop muted playsinline />
+    <video
+      class="w-full h-full object-cover"
+      src="/hero.mp4"
+      autoplay
+      loop
+      muted
+      playsinline
+      poster="/images/dia.png" >
+      Tu navegador no soporta videos.
+    </video>
   </div>
+
   <div class="absolute top-0 left-0 w-full h-full bg-black/60 z-10"></div>
+
   <div class="relative z-20 max-w-4xl mx-auto px-4">
-    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight text-balance" set:html={title} />
+    <h1 
+      class="text-4xl md:text-6xl font-extrabold leading-tight text-balance" 
+      set:html={title} 
+    />
     {subtitle && (
       <p class="mt-4 text-lg md:text-xl text-gray-200 max-w-3xl mx-auto text-balance">
         {subtitle}

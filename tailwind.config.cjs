@@ -1,14 +1,15 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-	darkMode: 'class',
-	theme: {
-		extend: {
-			colors: {
-				'secondary': '#84cc16',      // Main green color
-				'secondary-dark': '#65a30d' // Darker green for hover effects
-			}
-		},
-	},
-	plugins: [],
+export default {
+    content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+    darkMode: 'class',
+    theme: {
+        extend: {
+            colors: {
+                // Usamos 'var' para que Tailwind use tus colores de colors.css
+                'secondary': 'var(--color-secondary)',
+                'secondary-dark': 'var(--color-secondary-dark)',
+            }
+        },
+    },
+    plugins: [],
 }

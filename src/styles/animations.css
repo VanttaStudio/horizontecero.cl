@@ -1,4 +1,4 @@
-/* Este archivo controla todas las transiciones, transformaciones y animaciones. */
+/* src/styles/animations.css */
 
 /* Transiciones globales */
 body {
@@ -15,12 +15,31 @@ body {
 
 /* ▼ ANIMACIÓN DEL BOTÓN MODIFICADA ▼ */
 .btn-secondary {
-  /* Transicionamos suavemente la transformación y la sombra */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* La transición afecta a transformación, sombra y color */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
+
 .btn-secondary:hover {
-  /* Al pasar el mouse, el botón se mueve 3px hacia arriba */
-  transform: translateY(-3px);
-  /* La sombra se hace un poco más grande y difusa, dando el efecto de "elevarse" */
-  box-shadow: 0 10px 20px rgba(132, 204, 22, 0.25);
+  /* El botón se eleva y la sombra se expande */
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(61, 255, 22, 0.3); /* Ajustado al verde neón */
+}
+
+/* Animación para el icono dentro del botón */
+.btn-secondary:hover svg {
+  transform: translateX(4px);
+}
+.btn-secondary svg {
+    transition: transform 0.3s ease;
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
