@@ -1,0 +1,49 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import VermicompostingCourse from '../components/VermicompostingCourse';
+import { BookOpen, ShieldCheck } from 'lucide-react';
+---
+
+<MainLayout title="Diplomado en Vermicompostaje | Horizonte Cero">
+  <div class="pt-32 pb-20 relative min-h-screen">
+    
+    <div class="max-w-7xl mx-auto px-4 mb-16">
+      <div class="flex justify-center">
+        <div class="w-full max-w-5xl bg-[#F0EEE5]/95 dark:bg-slate-900/60 backdrop-blur-xl rounded-[3rem] p-10 md:p-14 border border-stone-200 dark:border-white/10 shadow-2xl relative overflow-hidden text-center">
+          
+          <div class="absolute top-0 left-0 w-32 h-32 bg-[var(--color-secondary)]/10 blur-[60px] pointer-events-none"></div>
+
+          <div class="inline-flex items-center gap-2 py-1 px-3 rounded-full bg-[var(--color-secondary)]/10 text-[var(--color-secondary-dark)] dark:text-[var(--color-secondary)] text-xs font-black uppercase tracking-widest mb-6 border border-[var(--color-secondary)]/20">
+            <ShieldCheck size={14} />
+            Certificación Técnica
+          </div>
+
+          <h1 class="text-4xl md:text-6xl font-black text-stone-900 dark:text-white mb-6 leading-none">
+            Diplomado <span class="text-[var(--color-secondary-dark)] dark:text-[var(--color-secondary)]">Biotecnológico</span>
+          </h1>
+          
+          <p class="text-xl md:text-2xl text-stone-700 dark:text-stone-300 font-medium max-w-3xl mx-auto leading-relaxed">
+            El manual de campo definitivo para la gestión de ciclos de nutrientes complejos mediante la <em>Eisenia fetida</em>.
+          </p>
+
+          <div class="flex flex-wrap justify-center gap-6 mt-8 text-sm font-bold uppercase tracking-widest text-stone-500">
+            <span class="flex items-center gap-2"><BookOpen size={18} class="text-[var(--color-secondary-dark)]" /> 7 Módulos Intensivos</span>
+            <span class="flex items-center gap-2">🧪 Rigor Académico</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="relative z-10">
+        <VermicompostingCourse client:load />
+    </div>
+
+  </div>
+</MainLayout>
+
+<style>
+  /* Optimización para que el contenido resalte sobre el fondo de Magallanes */
+  body {
+    background-attachment: fixed;
+  }
+</style>

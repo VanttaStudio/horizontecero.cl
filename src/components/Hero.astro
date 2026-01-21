@@ -1,53 +1,67 @@
 ---
-import Button from "./Button.astro";
+import HeroContent from './HeroContent'; // Importamos el componente React
 
-// Las props que definimos para el título, subtítulo y botón
 interface Props {
   title: string;
-  subtitle?: string;
-  buttonText?: string;
-  buttonHref?: string;
+  subtitle: string;
+  buttonText: string;
+  buttonHref: string;
 }
 
-const { 
-  title, 
-  subtitle, 
-  buttonText,
-  buttonHref
-} = Astro.props;
+const { title, subtitle, buttonText, buttonHref } = Astro.props;
 ---
 
-<section class="relative h-screen w-full flex items-center justify-center text-center text-white overflow-hidden">
+<section class="relative h-screen w-full overflow-hidden flex items-center">
   
-  <div class="absolute top-0 left-0 w-full h-full z-0">
+  {/* 1. CAPA DE FONDO: VIDEO Y GRADIENTES */}
+  <div class="absolute inset-0 z-0 bg-stone-900">
     <video
-      class="w-full h-full object-cover"
-      src="/hero.mp4"
       autoplay
       loop
       muted
       playsinline
-      poster="/images/dia.png" >
-      Tu navegador no soporta videos.
+      poster="/images/poster-video.jpg" 
+      class="w-full h-full object-cover object-left" 
+    >
+      {/* Video de las manos a la izquierda */}
+      <source src="/hero.mp4" type="video/mp4" />
     </video>
+
+    {/* --- GRADIENTES CINEMATOGRÁFICOS --- */}
+    
+    {/* Capa oscura base para bajar el brillo general del video */}
+    <div class="absolute inset-0 bg-stone-900/20"></div>
+    
+    {/* Gradiente desde abajo (hacia arriba) para que el texto inferior se lea bien */}
+    <div class="absolute inset-0 bg-gradient-to-t from-stone-900 via-transparent to-stone-900/60 opacity-90"></div>
+    
+    {/* Gradiente desde la DERECHA (hacia la izquierda) para oscurecer la zona del texto 
+        y dejar las manos (izquierda) más brillantes. */}
+    <div class="absolute inset-0 bg-gradient-to-l from-stone-900/70 via-stone-900/20 to-transparent"></div>
   </div>
 
-  <div class="absolute top-0 left-0 w-full h-full bg-black/60 z-10"></div>
-
-  <div class="relative z-20 max-w-4xl mx-auto px-4">
-    <h1 
-      class="text-4xl md:text-6xl font-extrabold leading-tight text-balance" 
-      set:html={title} 
-    />
-    {subtitle && (
-      <p class="mt-4 text-lg md:text-xl text-gray-200 max-w-3xl mx-auto text-balance">
-        {subtitle}
-      </p>
-    )}
-    <div class="mt-10">
-      <Button href={buttonHref}>
-        {buttonText}
-      </Button>
-    </div>
+  {/* 2. CAPA DE CONTENIDO (React + Framer Motion) */}
+  {/* El contenedor ocupa toda la pantalla y centra verticalmente el componente */}
+  <div class="relative z-10 w-full h-full flex flex-col justify-center">
+      
+      {/* Usamos client:load para que las animaciones de entrada ocurran apenas carga la página.
+          Pasamos todas las props al componente de React.
+      */}
+      <HeroContent 
+        client:load 
+        title={title} 
+        subtitle={subtitle} 
+        buttonText={buttonText} 
+        buttonHref={buttonHref} 
+      />
+      
   </div>
+
+  {/* 3. INDICADOR DE SCROLL (Flechita rebotando) */}
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce text-white/50 pointer-events-none">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+    </svg>
+  </div>
+
 </section>

@@ -1,21 +1,133 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 import Hero from '../components/Hero.astro';
-import CoursePromo from '../components/CoursePromo.astro';
+
+// Componentes React
+import CardKenos from '../components/CardKenos.tsx';
+import ProcessSteps from '../components/ProcessSteps.tsx';
+import SocioProductorPromo from '../components/SocioProductorPromo.tsx';
+import CoursePromo from '../components/CoursePromo.tsx';
+import SolutionsSection from '../components/SolutionsSection.tsx';
+import PartnersMarquee from '../components/PartnersMarquee.tsx';
+import FaqSection from '../components/FaqSection.tsx';
+import DnaSection from '../components/DnaSection.tsx';
+import FoundersSection from '../components/FoundersSection.tsx';
 ---
-<MainLayout title="Horizonte Cero | Inicio">
+
+<MainLayout title="Horizonte Cero | Súmate y Resta Residuos">
   
+  {/* 1. HERO: El punto de entrada */}
   <Hero 
-    title="Cultivamos <span class='text-secondary'>comunidad</span>, <span class='text-secondary'>conciencia</span> y <span class='text-secondary'>conexión</span> con la tierra."
-    subtitle="Impulsamos la sostenibilidad en Punta Arenas a través del vermicompostaje, la agroecología urbana y la educación ambiental. Transformamos residuos en recursos y conocimiento en acción."
-    buttonText="Chatea con KENOS.IA"
-    buttonHref="#"
+    title="Súmate y <span class='text-[var(--color-secondary)]'>Resta Residuos</span>."
+    subtitle="Transformamos los residuos orgánicos de tu cocina en un recurso valioso. Únete a la red de economía circular local en Magallanes."
+    buttonText="Conoce el Sistema" 
+    buttonHref="#ciclo-vital"
   />
 
-  <div class="relative z-10">
-    <div class="space-y-20 py-20">
-      <CoursePromo />
+  <div class="relative z-10 w-full pb-20">
+    
+    {/* 2. KENOS CHAT: IA para soporte técnico inmediato */}
+    <div class="px-4 pt-12 relative z-20 mb-24">
+       <div class="max-w-5xl mx-auto">
+          <CardKenos client:visible />
+       </div>
     </div>
+
+    {/* 3. EL CICLO: Explicación técnica de la biotransformación */}
+    <div id="ciclo-vital" class="px-4 mb-32 scroll-mt-32">
+        <div class="max-w-4xl mx-auto mb-10 text-center">
+            {/* RECUADRO ESTILO VIDRIO CONTRASTADO */}
+            <div class="inline-block bg-[#F0EEE5]/90 dark:bg-slate-900/60 backdrop-blur-xl rounded-[2.5rem] p-8 md:p-12 border border-stone-200 dark:border-white/10 shadow-xl shadow-stone-200/40 dark:shadow-none">
+                <span class="text-[var(--color-secondary-dark)] dark:text-[var(--color-secondary)] font-black uppercase tracking-widest text-xs mb-3 block">
+                    Metodología
+                </span>
+                <h2 class="text-3xl md:text-4xl font-black text-stone-900 dark:text-white mb-4">
+                   Protocolo de Biotransformación
+                </h2>
+                <p class="text-lg text-stone-600 dark:text-stone-300 font-medium">
+                    Desde la segregación en tu mesa hasta la creación del humus premium.
+                </p>
+            </div>
+        </div>
+        <ProcessSteps client:visible />
+    </div>
+
+    {/* 4. PROMOCIÓN SOCIO PRODUCTOR: El corazón del negocio unipersonal */}
+    <div class="mb-32">
+        <SocioProductorPromo client:visible />
+    </div>
+
+    {/* 5. PRODUCTOS Y SERVICIOS: Venta de núcleos y composteras */}
+    <div id="soluciones" class="mb-32 px-4">
+        <div class="max-w-4xl mx-auto mb-16 text-center">
+            {/* RECUADRO SOBRE TEXTO */}
+            <div class="inline-block bg-[#F0EEE5]/90 dark:bg-slate-900/60 backdrop-blur-xl rounded-[2.5rem] p-8 md:p-12 border border-stone-200 dark:border-white/10 shadow-xl shadow-stone-200/40 dark:shadow-none">
+                <h2 class="text-4xl md:text-5xl font-black text-stone-900 dark:text-white mb-4 leading-tight">
+                    Equipamiento y <span class="text-[var(--color-secondary-dark)] dark:text-[var(--color-secondary)]">Soluciones</span>
+                </h2>
+                <p class="text-xl text-stone-600 dark:text-stone-400 font-medium">
+                    Todo lo que necesitas para iniciar tu propia unidad de valorización de residuos.
+                </p>
+            </div>
+        </div>
+        <SolutionsSection client:visible />
+    </div>
+
+    {/* 6. ADN: NUESTRO PROPÓSITO TRIPLE (ENCUADRADO) */}
+    <div class="max-w-7xl mx-auto mb-32 px-4 scroll-mt-32" id="proposito">
+        <div class="flex justify-center mb-16">
+            {/* RECUADRO ESTILO VIDRIO GIGANTE (Igual a Nuestra Raíz) */}
+            <div class="w-full max-w-5xl bg-[#F0EEE5]/95 dark:bg-slate-900/60 backdrop-blur-xl rounded-[3rem] p-10 md:p-14 border border-stone-200 dark:border-white/10 shadow-2xl shadow-stone-200/40 dark:shadow-none text-center relative overflow-hidden">
+                
+                <div class="absolute top-0 left-0 w-32 h-32 bg-[var(--color-secondary)]/10 blur-[60px] pointer-events-none"></div>
+
+                <span class="relative z-10 text-[var(--color-secondary-dark)] dark:text-[var(--color-secondary)] font-black uppercase tracking-widest text-xs mb-4 block">
+                    Impacto Real
+                </span>
+                
+                <h2 class="relative z-10 text-4xl md:text-6xl font-black text-stone-900 dark:text-white mb-6 leading-none">
+                    Nuestro <span class="text-[var(--color-secondary-dark)] dark:text-[var(--color-secondary)]">Propósito</span> Triple
+                </h2>
+                
+                <p class="relative z-10 text-xl md:text-2xl text-stone-700 dark:text-stone-300 font-medium max-w-3xl mx-auto leading-relaxed">
+                    Más que una empresa, somos un movimiento de regeneración para Magallanes.
+                </p>
+            </div>
+        </div>
+        <DnaSection client:visible />
+    </div>
+
+    {/* 7. ACADEMIA OBRERA: Formación y Manuales */}
+    <div class="mb-32 px-4">
+         <CoursePromo client:visible />
+    </div>
+
+    {/* 8. FUNDADORES: César y Jorge (Incluye componente Raíz) */}
+    <div class="max-w-7xl mx-auto mb-32">
+        <FoundersSection client:visible />
+    </div>
+
+    {/* 9. FAQ: Dudas técnicas */}
+    <div id="faq" class="mb-32 px-4 scroll-mt-32">
+        <div class="max-w-4xl mx-auto mb-12 text-center">
+            <div class="inline-block bg-[#F0EEE5]/90 dark:bg-slate-900/60 backdrop-blur-xl rounded-[2.5rem] p-8 border border-stone-200 dark:border-white/10 shadow-lg">
+                <span class="text-[var(--color-secondary-dark)] dark:text-[var(--color-secondary)] font-black uppercase tracking-widest text-xs mb-2 block">Resuelve tus dudas</span>
+                <h2 class="text-3xl md:text-4xl font-black text-stone-900 dark:text-white">Preguntas Frecuentes</h2>
+            </div>
+        </div>
+        <FaqSection client:visible />
+    </div>
+
+    {/* 10. ALIANZAS: Marquee de marcas */}
+    <PartnersMarquee client:visible />
+
   </div>
 
 </MainLayout>
+
+<style>
+    /* Suaviza el salto de los enlaces internos */
+    .scroll-mt-32 {
+        scroll-margin-top: 8rem;
+    }
+</style>

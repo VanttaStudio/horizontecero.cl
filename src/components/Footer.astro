@@ -1,23 +1,136 @@
 ---
+import { Instagram, Mail, Lock, MessageCircle } from 'lucide-react';
+
 const currentYear = new Date().getFullYear();
+
 const socialLinks = [
-    { href: "#", label: "Facebook" },
-    { href: "#", label: "Instagram" },
-    { href: "#", label: "LinkedIn" },
-]
+    { 
+        href: "https://www.instagram.com/horizontecero.cl/?next=%2Fhorizontecero_%2F", 
+        icon: Instagram, 
+        label: "Instagram" 
+    },
+    { 
+        href: "https://wa.me/56994523333", 
+        icon: MessageCircle, 
+        label: "WhatsApp" 
+    },
+    { 
+        href: "mailto:cesar@horizontecero.cl", 
+        icon: Mail, 
+        label: "Correo" 
+    },
+];
 ---
-<footer class="bg-gray-800 text-gray-300">
-    <div class="container mx-auto px-6 py-8">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-            <div class="text-center md:text-left mb-4 md:mb-0">
-                <p class="text-sm">&copy; {currentYear} Horizonte Cero. Todos los derechos reservados.</p>
-                <p class="text-xs mt-1">Reconstruido con Astro & Tailwind CSS</p>
+
+<footer class="bg-slate-900 text-white pt-20 pb-10 px-6 rounded-t-[3rem] mt-auto relative overflow-hidden shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
+    
+    {/* --- FONDO DECORATIVO ANIMADO --- */}
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+         {/* Mancha Verde Neón (Tu marca) - Con animación de "respiración" */}
+         <div class="absolute top-[-100px] left-1/2 -translate-x-1/2 w-96 h-96 bg-[var(--color-secondary)]/20 rounded-full blur-[120px] animate-pulse-slow"></div>
+         {/* Mancha Azul (Complementario) */}
+         <div class="absolute bottom-[-50px] right-0 w-64 h-64 bg-blue-600/20 rounded-full blur-[100px] animate-pulse-slow delay-1000"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto flex flex-col items-center relative z-10">
+        
+        {/* 1. LOGO */}
+        <div class="mb-12 transform hover:scale-105 transition-transform duration-500">
+            <a href="/" aria-label="Volver al inicio">
+                <img 
+                    src="/images/logonoche.png" 
+                    alt="Horizonte Cero" 
+                    class="h-28 w-auto object-contain drop-shadow-2xl" 
+                />
+            </a>
+        </div>
+
+        {/* 2. REDES SOCIALES (Estilo Glass + Neón) */}
+        <div class="flex gap-6 mb-16">
+            {socialLinks.map((social) => (
+                <a 
+                    href={social.href} 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    class="group relative bg-white/5 p-4 rounded-full transition-all duration-300 hover:scale-110 border border-white/10 hover:border-[var(--color-secondary)] hover:bg-[var(--color-secondary)]/10"
+                >
+                    {/* Icono */}
+                    <social.icon size={24} class="text-slate-300 group-hover:text-[var(--color-secondary)] transition-colors" />
+                    
+                    {/* Brillo al hover */}
+                    <div class="absolute inset-0 rounded-full bg-[var(--color-secondary)] blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-300"></div>
+                </a>
+            ))}
+        </div>
+
+        {/* LÍNEA DIVISORIA */}
+        <div class="w-full max-w-5xl h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-10"></div>
+
+        {/* 3. GRID INFERIOR */}
+        <div class="w-full max-w-6xl grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-sm text-slate-400">
+          
+            {/* Copyright */}
+            <div class="text-center md:text-left leading-relaxed">
+                <p>© {currentYear} Horizonte Cero.</p>
+                <p class="text-xs text-slate-500">Punta Arenas, Chile.</p>
             </div>
-            <div class="flex space-x-4">
-                {socialLinks.map(link => (
-                    <a href={link.href} class="hover:text-white transition-colors">{link.label}</a>
-                ))}
+
+            {/* CRÉDITOS VANTTA (Efecto Destello/Shine) */}
+            <div class="text-center flex flex-col items-center justify-center gap-1">
+                <span class="text-xs opacity-50 uppercase tracking-widest">Designed by</span>
+                <a 
+                    href="https://vanttacode.cl" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class="font-bold text-lg tracking-wide vantta-shine transition-all"
+                >
+                    Vantta Code
+                </a>
             </div>
+
+            {/* Acceso Admin */}
+            <div class="flex justify-center md:justify-end">
+                <a 
+                    href="/admin" 
+                    class="flex items-center gap-2 px-5 py-2 rounded-full bg-slate-800/50 hover:bg-slate-800 border border-white/5 hover:border-white/20 transition-all duration-300 group"
+                >
+                    <Lock size={12} class="text-slate-500 group-hover:text-white transition-colors" />
+                    <span class="text-xs font-medium text-slate-500 group-hover:text-white transition-colors">Admin</span>
+                </a>
+            </div>
+
         </div>
     </div>
 </footer>
+
+<style>
+    /* ANIMACIÓN DESTELLO (SHINE) PARA VANTTA CODE */
+    .vantta-shine {
+        background: linear-gradient(
+            to right,
+            #94a3b8 20%,      /* Color base (slate-400) */
+            #ffffff 50%,      /* Color del brillo (blanco) */
+            #94a3b8 80%       /* Color base (slate-400) */
+        );
+        background-size: 200% auto;
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        
+        /* Velocidad del destello: 4s infinito */
+        animation: shine 4s linear infinite;
+    }
+
+    /* Definición del movimiento del brillo */
+    @keyframes shine {
+        to {
+            background-position: 200% center;
+        }
+    }
+
+    /* ANIMACIÓN RESPIRACIÓN DEL FONDO */
+    .animate-pulse-slow {
+        animation: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+</style>
