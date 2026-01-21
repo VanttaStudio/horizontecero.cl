@@ -1,13 +1,12 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
-import node from '@astrojs/node';
+import vercel from '@astrojs/vercel'; // <--- CAMBIO AQUÍ
 
 export default defineConfig({
-  // Cambiamos 'hybrid' por 'server' para cumplir con la validación
-  output: 'server', 
-  adapter: node({
-    mode: 'standalone',
+  output: 'server', // Mantenemos server para que Kenos sea dinámico
+  adapter: vercel({
+    webAnalytics: { enabled: true },
   }),
   integrations: [react()],
   vite: {
