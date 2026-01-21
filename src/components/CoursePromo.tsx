@@ -1,12 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles, CalendarDays, Star, CheckCircle2, Gift } from 'lucide-react';
+import { ArrowRight, Sparkles, Home, Star, Leaf, Gift } from 'lucide-react';
 import { cn } from '../lib/utils';
 import Button from './Button'; 
 
 export default function CoursePromo() {
   return (
-    <section id="vermicompostaje" className="py-20 relative z-10 px-4 md:px-6">
+    <section id="compost-basico" className="py-20 relative z-10 px-4 md:px-6">
       
       <motion.div 
         className={cn(
@@ -21,11 +21,9 @@ export default function CoursePromo() {
         transition={{ duration: 0.8, type: "spring", bounce: 0.3 }}
       >
         
-        {/* --- LADO IZQUIERDO: VIDEO (Manos a la izquierda) --- */}
-        {/* IMPORTANTE: min-h-[400px] asegura que el video tenga altura en móvil */}
+        {/* --- LADO IZQUIERDO: VIDEO --- */}
         <div className="md:w-1/2 relative min-h-[400px] md:min-h-auto group overflow-hidden bg-stone-900">
           
-          {/* VIDEO DE FONDO */}
           <video
             autoPlay
             loop
@@ -37,22 +35,22 @@ export default function CoursePromo() {
             <source src="/videos/compost.mp4" type="video/mp4" />
           </video>
           
-          {/* Overlay Gradiente (Para que el texto se lea si cae encima) */}
+          {/* Overlay Gradiente */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-[#F0EEE5]/90 dark:to-slate-900/90 md:bg-gradient-to-r md:via-[#F0EEE5]/20" />
           
-          {/* Badge Flotante "Próximamente / Agendado" */}
+          {/* Badge Flotante "Fácil" */}
           <motion.div 
             className="absolute bottom-6 left-6 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md p-3 rounded-2xl shadow-xl border border-stone-100 dark:border-slate-600 flex items-center gap-3 z-10"
             initial={{ y: 20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            <div className="bg-green-100 dark:bg-green-900/50 p-2 rounded-full text-green-600 dark:text-green-400">
-                <CalendarDays size={16} fill="currentColor" className="text-green-600 dark:text-green-400" />
+            <div className="bg-orange-100 dark:bg-orange-900/50 p-2 rounded-full text-orange-600 dark:text-orange-400">
+                <Home size={16} />
             </div>
             <div>
-                <p className="text-[10px] text-stone-500 dark:text-slate-400 font-bold uppercase tracking-wider">Modalidad</p>
-                <p className="text-xs font-bold text-stone-800 dark:text-white">Talleres online</p>
+                <p className="text-[10px] text-stone-500 dark:text-slate-400 font-bold uppercase tracking-wider">Ideal para</p>
+                <p className="text-xs font-bold text-stone-800 dark:text-white">Empezar en Casa</p>
             </div>
           </motion.div>
         </div>
@@ -65,10 +63,10 @@ export default function CoursePromo() {
           
           <span className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-[var(--color-secondary)]/10 text-[var(--color-secondary-dark)] dark:text-[var(--color-secondary)] text-xs font-black tracking-widest mb-5 border border-[var(--color-secondary)]/20 uppercase shadow-sm">
             <Sparkles size={12} />
-            Aporte a la Comunidad
+            Guía para Principiantes
           </span>
 
-          {/* ETIQUETA "GRATIS" INTEGRADA */}
+          {/* ETIQUETA "GRATIS" */}
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -82,14 +80,14 @@ export default function CoursePromo() {
           </motion.div>
 
           <h2 className="text-3xl md:text-5xl font-extrabold text-stone-900 dark:text-white mb-6 leading-[1.1]">
-            Curso de <br />
+            Curso: <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-secondary-dark)] to-emerald-600 dark:from-[var(--color-secondary)] dark:to-emerald-400">
-              Vermicompostaje
+              Compost en Casa
             </span>
           </h2>
           
           <p className="text-stone-600 dark:text-slate-300 text-lg mb-8 leading-relaxed font-medium">
-            Aprende a transformar tus residuos orgánicos en abono vivo. Talleres prácticos para devolverle la mano a la tierra. ¡Reserva tu cupo para la próxima fecha!
+            Aprende a transformar tus restos de cocina en abono vivo de forma fácil y sin olores. Una guía de 5 pasos diseñada para que cualquier persona pueda empezar hoy mismo.
           </p>
 
           <div className="flex items-center gap-4 mb-8">
@@ -98,13 +96,15 @@ export default function CoursePromo() {
                     <Star key={i} size={18} className="fill-yellow-400 text-yellow-400 drop-shadow-sm" />
                  ))}
             </div>
-            <span className="text-sm font-bold text-stone-500 dark:text-slate-400">
-                Cupos limitados
+            <span className="text-sm font-bold text-stone-500 dark:text-slate-400 flex items-center gap-2">
+                <Leaf size={16} className="text-green-600" />
+                5 Módulos Prácticos
             </span>
           </div>
 
-          <Button href="/curso-vermicompostaje" variant="primary" size="lg">
-            INSCRIBIRSE AHORA
+          {/* Cambia el href a la página donde pongas el BeginnerCompostCourse */}
+          <Button href="/curso-basico" variant="primary" size="lg">
+            ¡EMPEZAR AHORA!
             <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
           </Button>
 

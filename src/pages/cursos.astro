@@ -1,18 +1,36 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
-// IMPORTACIÓN CORREGIDA: Se añadió Sprout y se verificaron los demás
-import { GraduationCap, BookOpen, Zap, Star, Leaf, ArrowRight, Sprout } from 'lucide-react';
+import { GraduationCap, Home, BookOpen, Zap, Star, Leaf, ArrowRight, Sprout } from 'lucide-react';
+import { cn } from '../lib/utils';
 
-const course = {
-  title: "Diplomado en Vermicompostaje Pro",
-  // RUTA CORREGIDA: Apunta directamente al archivo curso-vermicompostaje.astro
-  link: "/curso-vermicompostaje", 
-  description: "Transforma residuos orgánicos en 'oro negro' mediante biotecnología crítica para la sostenibilidad planetaria. Este curso tiene como objetivo transformar al estudiante en un experto capaz de gestionar ciclos de nutrientes complejos.",
-  modules: "7 Módulos", //
-  level: "Experto",
-  exam: "Por Bloque", //
-  seal: "Horizonte Cero"
-};
+const courses = [
+  {
+    title: "Curso: Compost en Casa",
+    href: "/curso-basico",
+    level: "Principiante",
+    levelColor: "text-orange-600",
+    bgIcon: "bg-orange-500/20",
+    iconColor: "text-orange-600",
+    icon: Home,
+    description: "Aprende lo esencial para reciclar tus restos orgánicos en casa. Sin olores, sin complicaciones y con resultados rápidos.",
+    modules: "5 Pasos",
+    badge: "Fácil",
+    identity: "Hogar Verde"
+  },
+  {
+    title: "Diplomado en Vermicompostaje Pro",
+    href: "/curso-vermicompostaje",
+    level: "Profesional",
+    levelColor: "text-emerald-700 dark:text-emerald-400",
+    bgIcon: "bg-emerald-500/20",
+    iconColor: "text-emerald-700 dark:text-emerald-400",
+    icon: GraduationCap,
+    description: "Domina la biotecnología de suelos y gestiona ciclos de nutrientes a escala técnica. Ideal para proyectos comunitarios o comerciales.",
+    modules: "7 Módulos",
+    badge: "Profesional",
+    identity: "Oro Negro"
+  }
+];
 ---
 
 <MainLayout title="Academia | Horizonte Cero">
@@ -20,85 +38,89 @@ const course = {
     
     <div class="max-w-7xl mx-auto px-4 mb-20 text-center">
       <div class="inline-block bg-[#F0EEE5]/95 dark:bg-slate-900/60 backdrop-blur-xl rounded-[2.5rem] p-10 border border-stone-200 dark:border-white/10 shadow-2xl">
-          <span class="text-[var(--color-secondary-dark)] dark:text-[var(--color-secondary)] font-black uppercase tracking-widest text-xs mb-4 block">Formación Profesional</span>
-          <h1 class="text-4xl md:text-6xl font-black text-stone-900 dark:text-white leading-none">
-            Academia <span class="text-[var(--color-secondary-dark)]">Horizonte Cero</span>
-          </h1>
+          <span class="text-stone-500 dark:text-stone-400 font-black uppercase tracking-widest text-xs mb-4 block">Formación para la Regeneración</span>
+          <h1 class="text-4xl md:text-6xl font-black text-stone-900 dark:text-white leading-none">Academia <span class="text-emerald-600">Horizonte Cero</span></h1>
       </div>
     </div>
 
-    <div class="max-w-6xl mx-auto px-4">
-      <section class="flex flex-col lg:flex-row bg-[#F0EEE5]/90 dark:bg-slate-900/80 backdrop-blur-xl border border-stone-200 dark:border-white/10 rounded-[4rem] overflow-hidden shadow-2xl">
-        
-        <div class="lg:w-1/3 bg-stone-950 p-12 pb-24 flex flex-col items-center justify-between min-h-[480px] relative">
-            <div class="bg-[var(--color-secondary)] text-stone-900 px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest animate-pulse shadow-lg z-10">
-                Cupos Limitados
-            </div>
+    <div class="max-w-6xl mx-auto px-4 space-y-16">
+      {courses.map((course) => (
+        <section class="flex flex-col lg:flex-row bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl border border-white/50 dark:border-white/10 rounded-[4rem] overflow-hidden shadow-xl transition-all duration-500 hover:shadow-2xl hover:bg-white/60">
+          
+          <div class="lg:w-1/3 p-12 pb-24 flex flex-col items-center justify-between min-h-[420px] relative border-b lg:border-b-0 lg:border-r border-white/40 dark:border-white/5">
+              
+              <div class={cn("px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest shadow-sm z-10 border", course.levelColor, "bg-white/80 dark:bg-slate-800/80 border-current")}>
+                  {course.badge}
+              </div>
 
-            <div class="w-32 h-32 bg-[var(--color-secondary)] rounded-[2.5rem] flex items-center justify-center text-stone-900 shadow-[0_0_60px_rgba(61,255,22,0.3)] my-8 z-10">
-                <GraduationCap size={64} strokeWidth={1.2} />
-            </div>
+              <div class={cn("w-28 h-28 rounded-[2.5rem] flex items-center justify-center shadow-inner my-8 z-10", course.bgIcon)}>
+                  <course.icon size={56} strokeWidth={1.5} className={course.iconColor} />
+              </div>
 
-            <div class="text-center z-10 mb-4">
-                <p class="text-[var(--color-secondary)] font-black uppercase tracking-[0.3em] text-[10px] mb-2">Ingeniería de Suelos</p>
-                <h3 class="text-white font-black text-5xl italic tracking-tighter leading-none">Oro Negro</h3>
-            </div>
-            
-            <div class="absolute inset-0 opacity-10 bg-[url('/images/pattern.png')] bg-cover pointer-events-none"></div>
-        </div>
-
-        <div class="lg:w-2/3 p-8 md:p-16 flex flex-col justify-center bg-white/10">
-            <div class="flex flex-col md:flex-row justify-between items-start gap-4 mb-8">
-                <h2 class="text-3xl md:text-5xl font-black text-stone-900 dark:text-white leading-tight">
-                    Diplomado en <br/> <span class="text-[var(--color-secondary-dark)] dark:text-[var(--color-secondary)]">Vermicompostaje Pro</span>
-                </h2>
-                <div class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 px-4 py-2 rounded-2xl font-black text-[10px] uppercase tracking-widest border border-green-200 dark:border-green-500/20 shadow-sm">
-                    100% GRATUITO
-                </div>
-            </div>
-
-            <p class="text-lg text-stone-600 dark:text-stone-300 mb-10 font-medium leading-relaxed">
-                {course.description}
-            </p>
-
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-                <div class="flex flex-col border-l-2 border-stone-200 dark:border-white/10 pl-4">
-                    <span class="text-[10px] font-black text-stone-400 uppercase tracking-widest mb-1">Módulos</span>
-                    <span class="font-bold text-stone-900 dark:text-white flex items-center gap-2"><BookOpen size={16}/> {course.modules}</span>
-                </div>
-                <div class="flex flex-col border-l-2 border-stone-200 dark:border-white/10 pl-4">
-                    <span class="text-[10px] font-black text-stone-400 uppercase tracking-widest mb-1">Nivel</span>
-                    <span class="font-bold text-stone-900 dark:text-white flex items-center gap-2"><Zap size={16}/> {course.level}</span>
-                </div>
-                <div class="flex flex-col border-l-2 border-stone-200 dark:border-white/10 pl-4">
-                    <span class="text-[10px] font-black text-stone-400 uppercase tracking-widest mb-1">Evaluación</span>
-                    <span class="font-bold text-stone-900 dark:text-white flex items-center gap-2"><Star size={16}/> {course.exam}</span>
-                </div>
-                <div class="flex flex-col border-l-2 border-stone-200 dark:border-white/10 pl-4">
-                    <span class="text-[10px] font-black text-stone-400 uppercase tracking-widest mb-1">Sello</span>
-                    <span class="font-bold text-stone-900 dark:text-white flex items-center gap-2"><Leaf size={16}/> {course.seal}</span>
-                </div>
-            </div>
-
-            <a 
-              href={course.link} 
-              class="inline-flex items-center justify-center gap-4 bg-stone-950 dark:bg-white text-white dark:text-stone-900 px-12 py-6 rounded-full font-black text-base hover:scale-105 transition-all shadow-2xl active:scale-95"
-            >
-                ACCEDER AL CURSO <ArrowRight size={22} />
-            </a>
-        </div>
-      </section>
-
-      <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 opacity-40 grayscale">
-          <div class="p-10 rounded-[3rem] border-2 border-dashed border-stone-300 dark:border-white/10 flex flex-col items-center text-center">
-              <Sprout size={32} class="text-stone-400 mb-4" />
-              <h4 class="font-black text-stone-400 uppercase tracking-widest text-xs">Próximamente</h4>
-              <p class="text-stone-400 text-xs font-bold mt-1">Apicultura Sustentable</p>
+              <div class="text-center z-10 mb-2">
+                  <p class={cn("font-black uppercase tracking-[0.3em] text-[10px] mb-2", course.levelColor)}>{course.level}</p>
+                  <h3 class="text-stone-900 dark:text-white font-black text-4xl italic tracking-tighter leading-none">{course.identity}</h3>
+              </div>
+              
+              <div class="absolute inset-0 opacity-5 bg-[url('/images/pattern.png')] bg-cover pointer-events-none"></div>
           </div>
-          <div class="p-10 rounded-[3rem] border-2 border-dashed border-stone-300 dark:border-white/10 flex flex-col items-center text-center">
-              <Zap size={32} class="text-stone-400 mb-4" />
-              <h4 class="font-black text-stone-400 uppercase tracking-widest text-xs">Próximamente</h4>
-              <p class="text-stone-400 text-xs font-bold mt-1">Ingeniería de Biorreactores</p>
+
+          <div class="lg:w-2/3 p-8 md:p-14 flex flex-col justify-center">
+              <div class="flex flex-col md:flex-row justify-between items-start gap-4 mb-6">
+                  <h2 class="text-3xl md:text-5xl font-black text-stone-900 dark:text-white leading-tight">
+                      {course.title.split(': ')[0]} <br/> 
+                      <span class={course.levelColor}>{course.title.split(': ')[1] || course.title}</span>
+                  </h2>
+                  <div class="bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 px-4 py-2 rounded-2xl font-black text-[10px] uppercase tracking-widest border border-emerald-200 dark:border-emerald-500/20 shadow-sm">
+                      100% GRATUITO
+                  </div>
+              </div>
+
+              <p class="text-lg text-stone-600 dark:text-stone-300 mb-10 font-medium leading-relaxed">
+                  {course.description}
+              </p>
+
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+                  <div class="flex flex-col border-l-2 border-stone-200 dark:border-white/10 pl-4">
+                      <span class="text-[10px] font-black text-stone-400 uppercase tracking-widest mb-1">Estructura</span>
+                      <span class="font-bold text-stone-900 dark:text-white flex items-center gap-2 text-sm"><BookOpen size={16} className="text-emerald-600" /> {course.modules}</span>
+                  </div>
+                  <div class="flex flex-col border-l-2 border-stone-200 dark:border-white/10 pl-4">
+                      <span class="text-[10px] font-black text-stone-400 uppercase tracking-widest mb-1">Nivel</span>
+                      <span class="font-bold text-stone-900 dark:text-white flex items-center gap-2 text-sm"><Zap size={16} className="text-emerald-600" /> {course.level}</span>
+                  </div>
+                  <div class="flex flex-col border-l-2 border-stone-200 dark:border-white/10 pl-4">
+                      <span class="text-[10px] font-black text-stone-400 uppercase tracking-widest mb-1">Modalidad</span>
+                      <span class="font-bold text-stone-900 dark:text-white flex items-center gap-2 text-sm"><Star size={16} className="text-emerald-600" /> Online</span>
+                  </div>
+                  <div class="flex flex-col border-l-2 border-stone-200 dark:border-white/10 pl-4">
+                      <span class="text-[10px] font-black text-stone-400 uppercase tracking-widest mb-1">Sello</span>
+                      <span class="font-bold text-stone-900 dark:text-white flex items-center gap-2 text-sm"><Leaf size={16} className="text-emerald-600" /> H. Cero</span>
+                  </div>
+              </div>
+
+              <a 
+                href={course.href} 
+                class="inline-flex items-center justify-center gap-4 bg-stone-900 dark:bg-white text-white dark:text-stone-900 px-12 py-6 rounded-full font-black text-lg hover:scale-105 transition-all shadow-xl active:scale-95"
+              >
+                  ACCEDER AL CURSO <ArrowRight size={22} />
+              </a>
+          </div>
+        </section>
+      ))}
+
+      <div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 opacity-60">
+          <div class="p-8 rounded-[2.5rem] border-2 border-dashed border-stone-300 dark:border-white/10 flex flex-col items-center text-center bg-white/10">
+              <Sprout size={24} class="text-stone-400 mb-2" />
+              <h4 class="font-black text-stone-500 uppercase tracking-widest text-[10px]">Apicultura</h4>
+          </div>
+          <div class="p-8 rounded-[2.5rem] border-2 border-dashed border-stone-300 dark:border-white/10 flex flex-col items-center text-center bg-white/10">
+              <Zap size={24} class="text-stone-400 mb-2" />
+              <h4 class="font-black text-stone-500 uppercase tracking-widest text-[10px]">Biorreactores</h4>
+          </div>
+          <div class="p-8 rounded-[2.5rem] border-2 border-dashed border-stone-300 dark:border-white/10 flex flex-col items-center text-center bg-white/10">
+              <Star size={24} class="text-stone-400 mb-2" />
+              <h4 class="font-black text-stone-500 uppercase tracking-widest text-[10px]">Huerta Orgánica</h4>
           </div>
       </div>
     </div>

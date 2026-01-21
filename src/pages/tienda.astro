@@ -1,0 +1,133 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { Bug, Package, Sprout, ArrowRight, Lock } from 'lucide-react';
+import { cn } from '../lib/utils';
+
+const products = {
+  worms: {
+    title: "Lombrices Californianas",
+    subtitle: "Biomasa Autoreplicable",
+    desc: "Núcleos de cría de Eisenia fetida seleccionados por su alta tasa reproductiva y voracidad metabólica.",
+    icon: Bug,
+    color: "text-orange-600",
+    bgColor: "bg-orange-500/10"
+  },
+  composter: {
+    title: "Vermicompostera Pro",
+    subtitle: "Biorreactor Doméstico",
+    desc: "Sistema diseñado para garantizar la retención hídrica (70-80%) y el intercambio gaseoso necesario para la vida.",
+    icon: Package,
+    color: "text-emerald-700",
+    bgColor: "bg-emerald-500/10"
+  },
+  humus: {
+    title: "Humus Horizonte Cero",
+    subtitle: "El Oro Negro de Magallanes",
+    desc: "Bioestimulante premium rico en fitohormonas y microorganismos que activan la vida del suelo y el crecimiento radicular. Humus madurado en sacos respirables para estabilizar el Carbono.",
+    icon: Sprout,
+    color: "text-emerald-800",
+    bgColor: "bg-emerald-600/10"
+  }
+};
+---
+
+<MainLayout title="Tienda | Horizonte Cero">
+  <div class="pt-32 pb-20 relative min-h-screen">
+    
+    <div class="max-w-7xl mx-auto px-4 mb-16 text-center">
+      <div class="inline-block bg-[#F0EEE5]/95 dark:bg-slate-900/60 backdrop-blur-xl rounded-[2.5rem] p-10 border border-stone-200 dark:border-white/10 shadow-2xl">
+          <span class="text-stone-500 dark:text-stone-400 font-black uppercase tracking-widest text-xs mb-4 block">Suministros Biotecnológicos</span>
+          <h1 class="text-4xl md:text-6xl font-black text-stone-900 dark:text-white leading-none">
+            Tienda <span class="text-emerald-600">Regenerativa</span>
+          </h1>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+        
+        <div class="flex flex-col gap-8">
+          
+          <article class="relative flex-1 bg-white/60 dark:bg-slate-900/40 backdrop-blur-2xl border border-white dark:border-white/10 rounded-[3rem] p-10 overflow-hidden shadow-xl group">
+            
+            <div class="absolute top-8 right-8 z-50">
+              <div class="flex items-center gap-2 bg-orange-600 text-white px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-widest shadow-xl animate-pulse">
+                <Lock size={12} fill="currentColor" />
+                <span>Próximamente</span>
+              </div>
+            </div>
+            
+            <div class="relative z-10 pr-32">
+                <div class={cn("w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-inner", products.worms.bgColor)}>
+                    <Bug className={products.worms.color} size={36} />
+                </div>
+                <h2 class="text-2xl font-black text-stone-900 dark:text-white mb-2">{products.worms.title}</h2>
+                <p class={cn("text-xs font-black uppercase tracking-widest mb-4", products.worms.color)}>{products.worms.subtitle}</p>
+                <p class="text-stone-600 dark:text-stone-300 text-sm leading-relaxed mb-6">{products.worms.desc}</p>
+                <div class="opacity-20 flex items-center gap-2 font-black text-[10px] uppercase">Detalles técnicos <ArrowRight size={14} /></div>
+            </div>
+          </article>
+
+          <article class="relative flex-1 bg-white/60 dark:bg-slate-900/40 backdrop-blur-2xl border border-white dark:border-white/10 rounded-[3rem] p-10 overflow-hidden shadow-xl group">
+            
+            <div class="absolute top-8 right-8 z-50">
+              <div class="flex items-center gap-2 bg-emerald-700 text-white px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-widest shadow-xl animate-pulse">
+                <Lock size={12} fill="currentColor" />
+                <span>Próximamente</span>
+              </div>
+            </div>
+
+            <div class="relative z-10 pr-32">
+                <div class={cn("w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-inner", products.composter.bgColor)}>
+                    <Package className={products.composter.color} size={36} />
+                </div>
+                <h2 class="text-2xl font-black text-stone-900 dark:text-white mb-2">{products.composter.title}</h2>
+                <p class={cn("text-xs font-black uppercase tracking-widest mb-4", products.composter.color)}>{products.composter.subtitle}</p>
+                <p class="text-stone-600 dark:text-stone-300 text-sm leading-relaxed mb-6">{products.composter.desc}</p>
+                <div class="opacity-20 flex items-center gap-2 font-black text-[10px] uppercase">Detalles técnicos <ArrowRight size={14} /></div>
+            </div>
+          </article>
+        </div>
+
+        <article class="relative bg-white/60 dark:bg-slate-900/40 backdrop-blur-2xl border border-white dark:border-white/10 rounded-[4rem] p-12 md:p-16 overflow-hidden shadow-xl group flex flex-col justify-center">
+            
+            <div class="absolute top-12 right-12 z-50">
+              <div class="flex items-center gap-2 bg-emerald-800 text-white px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest shadow-xl animate-pulse">
+                <Lock size={14} fill="currentColor" />
+                <span>Próximamente</span>
+              </div>
+            </div>
+
+            <div class="relative z-10">
+                <div class={cn("w-24 h-24 rounded-[2rem] flex items-center justify-center mb-10 shadow-inner", products.humus.bgColor)}>
+                    <Sprout className={products.humus.color} size={56} />
+                </div>
+                <h2 class="text-4xl md:text-5xl font-black text-stone-900 dark:text-white mb-6 leading-tight">{products.humus.title}</h2>
+                <p class={cn("text-sm font-black uppercase tracking-[0.2em] mb-10", products.humus.color)}>{products.humus.subtitle}</p>
+                
+                <div class="prose prose-stone dark:prose-invert max-w-none">
+                    <p class="text-xl text-stone-700 dark:text-stone-200 leading-relaxed italic mb-8 border-l-4 border-emerald-500 pl-6">
+                        "El Oro Negro de Magallanes"
+                    </p>
+                    <p class="text-stone-600 dark:text-stone-300 text-lg leading-relaxed">
+                        Nuestro humus premium es el resultado de un proceso biotecnológico que garantiza un sustrato rico en microorganismos y fitohormonas. Madurado para estabilizar el carbono antes de su envasado.
+                    </p>
+                </div>
+
+                <div class="mt-16 opacity-20 flex items-center gap-3 font-black text-xs uppercase tracking-widest pt-8 border-t border-stone-200 dark:border-white/5">
+                    Análisis de laboratorio <ArrowRight size={18} />
+                </div>
+            </div>
+        </article>
+
+      </div>
+    </div>
+  </div>
+</MainLayout>
+
+<style>
+  /* Aseguramos que el badge siempre flote a la derecha sin importar el flujo flex */
+  .absolute {
+    position: absolute !important;
+  }
+</style>

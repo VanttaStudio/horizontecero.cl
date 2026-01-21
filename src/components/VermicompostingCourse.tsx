@@ -10,7 +10,8 @@ import {
   TrendingUp, 
   Zap,
   Info,
-  Dna
+  Dna,
+  Sprout // Importación corregida
 } from 'lucide-react';
 import { cn } from '../lib/utils';
 
@@ -24,9 +25,9 @@ const courseModules = [
       <p class="mb-4">El vermicompostaje es una <strong>colaboración simbiótica</strong> entre la lombriz y una vasta comunidad de microorganismos. Las lombrices epigeas, como la <em>Eisenia fetida</em>, no se alimentan solo de materia fresca; su nutrición depende de hongos y bacterias que colonizan dicha materia.</p>
       <div class="bg-white/40 dark:bg-slate-800/40 p-6 rounded-2xl border border-stone-200 dark:border-white/5 my-6">
         <h4 class="font-bold mb-2 flex items-center gap-2"><Info size={18}/> Eisenia fetida: Adaptación</h4>
-        <p class="text-sm">Evolucionaron para vivir en la capa superficial de la hojarasca forestal. No necesitan excavar túneles profundos, lo que permite criarlas en contenedores poco profundos.</p>
+        <p class="text-sm">Evolucionaron para vivir en la capa superficial de la hojarasca forestal. Esto permite criarlas en contenedores poco profundos sin necesidad de suelo mineral profundo.</p>
       </div>
-      <p><strong>Parámetro Crítico:</strong> Su sistema respiratorio es cutáneo. El intercambio de gases ocurre a través de la epidermis, que debe estar constantemente húmeda. Si la piel se seca, la lombriz muere por asfixia.</p>
+      <p><strong>Parámetro Crítico:</strong> Su sistema respiratorio es cutáneo. El intercambio de gases ocurre a través de la epidermis, que debe estar constantemente húmeda para evitar la asfixia.</p>
     `,
     quiz: {
       question: "¿Cuál es la implicación práctica de que la Eisenia fetida sea una lombriz 'epigea'?",
@@ -46,9 +47,9 @@ const courseModules = [
       <p>Un sistema de vermicompostaje es un <strong>biorreactor</strong> que debe gestionar tres funciones: Retención Hídrica (70-80%), Intercambio Gaseoso y Aislamiento Térmico.</p>
       <ul class="space-y-4 my-6">
         <li class="flex gap-3"><span class="font-bold text-[var(--color-secondary-dark)]">Bandejas:</span> Estándar doméstico basado en migración vertical.</li>
-        <li class="flex gap-3"><span class="font-bold text-[var(--color-secondary-dark)]">Flujo Continuo (CFT):</span> El "Rolls Royce" de la eficiencia. Se alimenta por arriba y se cosecha por abajo mediante una rejilla.</li>
+        <li class="flex gap-3"><span class="font-bold text-[var(--color-secondary-dark)]">Flujo Continuo (CFT):</span> Alimentación superior y cosecha inferior mediante una rejilla, ideal para escalas profesionales.</li>
       </ul>
-      <p class="text-sm italic">La cama (bedding) inicial imita la hojarasca del bosque usando cartón (C/N 380:1) o fibra de coco.</p>
+      <p class="text-sm italic">La cama (bedding) inicial imita la hojarasca del bosque usando cartón corrugado o fibra de coco para evitar la compactación.</p>
     `,
     quiz: {
       question: "¿Por qué se prefiere el cartón corrugado sobre el papel de oficina?",
@@ -65,8 +66,8 @@ const courseModules = [
     title: "Bioquímica Nutricional",
     icon: Beaker,
     content: `
-      <p>La gestión de residuos es una reacción bioquímica. Se basa en la relación <strong>Carbono/Nitrógeno (C/N)</strong>.</p>
-      <p class="my-4"><strong>Regla Inquebrantable:</strong> Proporción 50/50 en volumen. Por cada parte de Nitrógeno (verdes), añadir una parte de Carbono (marrones).</p>
+      <p>La gestión de residuos es una reacción bioquímica basada en la relación <strong>Carbono/Nitrógeno (C/N)</strong>.</p>
+      <p class="my-4"><strong>Regla Inquebrantable:</strong> Proporción 50/50 en volumen. Por cada parte de Nitrógeno (verdes), añadir una parte de Carbono (marrones) para evitar la acidificación.</p>
       <div class="grid grid-cols-2 gap-4 my-4">
         <div class="p-4 bg-green-500/10 rounded-xl border border-green-500/20">
           <p class="font-bold text-green-700">Verdes (N)</p>
@@ -77,7 +78,7 @@ const courseModules = [
           <p class="text-xs">Cartón, hojas secas, paja.</p>
         </div>
       </div>
-      <p><strong>Molleja:</strong> Trituración mecánica con ayuda de "grit" (cáscara de huevo molida). Aporta $CaCO_3$ para regular el pH.</p>
+      <p><strong>Molleja:</strong> Trituración mecánica que requiere carbonato de calcio ($CaCO_3$) para regular el pH y actuar como material abrasivo.</p>
     `,
     quiz: {
       question: "¿Qué volumen de material seco añadir por cada litro de residuos de cocina?",
@@ -94,8 +95,8 @@ const courseModules = [
     title: "Gestión y Patología",
     icon: Bug,
     content: `
-      <p>Un sistema profesional se mide. El <strong>Squeeze Test</strong> determina la humedad ideal (70-80%): al apretar el sustrato deben salir pocas gotas.</p>
-      <p class="mt-4"><strong>Patología Crítica:</strong> La Intoxicación Proteica (Sour Crop). Aparecen abultamientos en el cuerpo ("rosario") debido a la acidificación extrema.</p>
+      <p>El <strong>Squeeze Test</strong> determina la humedad ideal (70-80%): al apretar el sustrato deben salir pocas gotas.</p>
+      <p class="mt-4"><strong>Patología Crítica:</strong> La Intoxicación Proteica (Sour Crop). Aparecen abultamientos ("rosario") debido a la acidificación extrema.</p>
       <div class="my-6 space-y-2">
         <div class="flex justify-between p-3 bg-white/30 rounded-lg text-sm"><span>Ácaros/Enquitreidos</span> <span class="font-bold">Indican Acidez</span></div>
         <div class="flex justify-between p-3 bg-white/30 rounded-lg text-sm"><span>Colémbolos</span> <span class="font-bold">Indican Salud</span></div>
@@ -116,7 +117,7 @@ const courseModules = [
     title: "Cosecha y Valor Agregado",
     icon: TrendingUp,
     content: `
-      <p>La cosecha separa el Humus fino, el material no procesado y las lombrices (capital biológico).</p>
+      <p>La cosecha separa el Humus fino, el material no procesado y las lombrices. El humus debe madurar 1-2 semanas en sacos respirables para estabilizar el Carbono.</p>
       <div class="p-6 bg-slate-900 text-white rounded-[2rem] my-6">
         <h4 class="text-[var(--color-secondary)] font-bold mb-4 italic">Diferencia Vital:</h4>
         <ul class="text-sm space-y-2">
@@ -124,7 +125,6 @@ const courseModules = [
           <li><strong>Té de Humus:</strong> Cultivo aeróbico oxigenado activamente con melaza.</li>
         </ul>
       </div>
-      <p class="text-sm italic">Maduración: El humus debe reposar 1-2 semanas en sacos respirables para estabilizar el Carbono.</p>
     `,
     quiz: {
       question: "¿Por qué es un error envasar el humus húmedo en bolsas herméticas?",
@@ -141,16 +141,16 @@ const courseModules = [
     title: "Agronomía Avanzada",
     icon: Sprout,
     content: `
-      <p>El humus no es un fertilizante NPK tradicional; es un <strong>bioestimulante</strong> rico en nitratos ($NO_3^-$), amonio ($NH_4^+$) y fitohormonas.</p>
+      <p>El humus es un <strong>bioestimulante</strong> rico en nitratos ($NO_3^-$), amonio ($NH_4^+$) y fitohormonas.</p>
       <ul class="my-6 space-y-4">
         <li class="bg-white/50 p-4 rounded-xl border border-white/40">
-           <strong>Semilleros:</strong> Mezcla al 10-20%. Aumenta la masa radicular.
+           <strong>Semilleros:</strong> Mezcla al 10-20% para aumentar la masa radicular.
         </li>
         <li class="bg-white/50 p-4 rounded-xl border border-white/40">
            <strong>Trasplante:</strong> 200g en contacto directo con la raíz para evitar el shock.
         </li>
       </ul>
-      <p><strong>Mito:</strong> "Más es mejor". El beneficio máximo se alcanza con sustituciones del 10% al 20%. Superar el 40% puede estancar el crecimiento.</p>
+      <p><strong>Mito:</strong> "Más es mejor". El beneficio máximo se alcanza con sustituciones del 10% al 20%.</p>
     `,
     quiz: {
       question: "¿Qué efecto tienen las auxinas presentes en el humus?",
@@ -175,10 +175,10 @@ const courseModules = [
         </div>
         <div class="p-4 rounded-2xl border border-stone-300 dark:border-white/10 bg-white/20">
           <h5 class="font-bold text-xs uppercase tracking-widest text-stone-500 mb-2">Calidad</h5>
-          <p class="text-sm">Certificación de ausencia de patógenos (Salmonella/E. coli).</p>
+          <p class="text-sm">Certificación de ausencia de patógenos como <em>Salmonella</em>.</p>
         </div>
       </div>
-      <p class="text-sm">Recuerda: El cliente no compra "caca de gusano"; compra <strong>vida para su suelo</strong>.</p>
+      <p class="text-sm">Recuerda: El cliente no compra "caca de lombriz"; compra <strong>vida para su suelo</strong>.</p>
     `,
     quiz: {
       question: "¿Cuál es la ventaja competitiva principal de este modelo?",

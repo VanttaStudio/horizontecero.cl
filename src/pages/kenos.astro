@@ -1,0 +1,33 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import KenosChatbot from '../components/KenosChatbot';
+---
+
+<MainLayout title="Kenos: El Arquitecto del Mundo | Horizonte Cero">
+  <div class="min-h-screen flex flex-col items-center pt-44 pb-20 px-4 relative overflow-hidden">
+    
+    <div class="text-center mb-12 relative z-10 pointer-events-none">
+        <h1 class="text-4xl md:text-6xl font-black text-stone-900 dark:text-white uppercase tracking-[0.4em] leading-none mb-6">
+          Kenos <span class="text-emerald-600 italic">Arquitecto</span>
+        </h1>
+        <p class="text-stone-500 dark:text-stone-400 font-bold uppercase tracking-widest text-xs">Sabiduría Estelar aplicada al Suelo</p>
+    </div>
+
+    <div class="w-full max-w-6xl h-[75vh] relative z-10">
+        <KenosChatbot client:load />
+    </div>
+
+  </div>
+</MainLayout>
+
+<style is:global>
+  body {
+    background-image: url('/images/patagonia-day.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  .dark body {
+    background-image: url('/images/patagonia-stars.jpg');
+  }
+</style>
